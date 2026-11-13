@@ -1,0 +1,77 @@
+{
+ "claude-usage": {
+  "picture": "claude-usage-sample.png"
+ },
+ "restart-claude": {
+  "picture": "restart-claude.png"
+ },
+ "server-info": {
+  "picture": "server-info.png"
+ },
+ "storage-auditor": {
+  "picture": "storage-cleaned.png"
+ },
+ "flush-resources": {
+  "picture": "flush-resources.png"
+ },
+ "net-mapper": {
+  "picture": "network-mapper.png"
+ },
+ "network-doctor": {
+  "picture": "network-doctor.png"
+ },
+ "great-debate": {
+  "picture": "great-debate.png"
+ },
+ "local-llm": {
+  "picture": "local-llm.png"
+ },
+ "reverse-engineer": {
+  "picture": "reverse-engineer.png"
+ },
+ "google-news": {
+  "picture": "google-news-home.png"
+ },
+ "ibkr-tracker": {
+  "picture": "ibkr-checking.png"
+ },
+ "thesis-read": {
+  "picture": "thesis-running.png"
+ },
+ "webull-main": {
+  "picture": "webull-main-report.png"
+ },
+ "webull-crypto": {
+  "picture": "webull-crypto-sample.png"
+ },
+ "portfolio-status": {
+  "picture": "portfolio-please-wait.png"
+ },
+ "resolve-studio": {
+  "picture": "resolve-studio.png"
+ },
+ "mission-planner": {
+  "picture": "mission-planner.png"
+ },
+ "local-news": {
+  "picture": "cartagena-news.png"
+ },
+ "sports-teams": {
+  "picture": "philly-sports.png"
+ },
+ "in-theaters": {
+  "picture": "in-theaters.png"
+ },
+ "coming-soon": {
+  "picture": "coming-soon.png"
+ },
+ "tasks": {
+  "picture": "tasks-list.png"
+ },
+ "calendar": {
+  "picture": "calendar-month.png"
+ },
+ "whatsapp": {
+  "picture": "whatsapp-chat-open.png"
+ }
+}
