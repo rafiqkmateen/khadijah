@@ -1,10 +1,11 @@
 # Khadijah
 
-**A private, voice-driven AI assistant for one Windows laptop.**
+**A private, voice-driven AI assistant with a safety gate between the model and your life: 78 features, 700+ written requirements, 4,200+ automated tests.**
+
 Designed and directed by Rafiq. Built with Claude.
 
 > [!NOTE]
-> **This is the public page.** The program itself isn't published. This page shows what she does, how she was designed and how the project was run. Hiring, or want something like this built? [Email me](mailto:rkmaerial@gmail.com).
+> **This is the public page.** The program itself is not published. This page shows what she does, how she was designed and how the project was run. Hiring, or want something like this built? [Email me](mailto:rkmaerial@gmail.com).
 
 [![Khadijah demo: her screen, The City, by day and by night](assets/hero-city.gif)](https://youtu.be/412THofH7Jc)
 
@@ -16,48 +17,57 @@ Designed and directed by Rafiq. Built with Claude.
 
 ---
 
+## Why this project matters
+
+Most AI demos show a model answering a question. Khadijah is the harder problem: an assistant that lives on one person's laptop, can reach their calendar, tasks, messages and screen, and must stay safe, predictable and affordable while it does.
+
+She was begun on 2 October 2026 and rebuilt from a clean start on 1 November under a full engineering process: every requirement written down first, a test for each, every change recorded, and nothing called finished until it was shown to work. That rebuild alone holds 900+ recorded changes in 17 days (1 to 17 November 2026).
+
+## What this demonstrates
+
+| Skill | Evidence in this project |
+|---|---|
+| **Designing AI systems** | A command router answers fixed commands instantly without a model. Everything else goes to a model router with three selectable models, an upgrade cap, fallbacks if one fails, and the cheapest model for small helper jobs. Cost and speed stay predictable. |
+| **Agent safety by structure** | An action gate: the only way a model's reply can cause an action is a short list (search, open an approved link, look at a screen, check for patches, read the calendar). Anything else is refused. She asks before she looks at a screen, and the program, not the model, asks which one. |
+| **Privacy by design** | One owner, one laptop. The server listens on that laptop only and refuses requests from other web pages. She never places a trade, never buys anything and never stores a website password. Read-only by default; a person confirms anything that changes something. |
+| **Requirements and verification** | 700+ written requirements, 900+ test cases and 4,200+ automated tests. Each requirement has a test written before the build and seen failing. Each build is reviewed by a separate AI reviewer, given only the specifications and the code. |
+| **Directing AI to build, and holding it to a standard** | Claude wrote the code under written rules. The work is specified, checked and recorded, so an AI assistant can build at speed without quality drifting. A reviewed demo found two wrong answers; both were written down, tested and fixed or removed ([ENGINEERING.md](ENGINEERING.md)). |
+| **Multilingual local voice** | Speech to text and text to speech run on the laptop. She answers in the language you write or speak. |
+| **Product and interface design** | The City: real footage of a place for each part of her, following the real time of day, with each name on the picture opening a live tool. |
+
 ## At a glance
 
 | | |
 |---|---|
 | **What** | A voice assistant that listens, answers in the language you use, and runs 78 features in 11 groups: calendar and tasks, WhatsApp, news, laptop care, drone and video helpers, read-only account reports. [Every feature is listed here](FEATURES.md) |
 | **Role** | Architect and product owner: vision, requirements, design decisions, standards, sign-off. Claude wrote the code under written rules |
-| **Scale** | About 130,000 lines of Python and JavaScript (72,000 of program, 58,000 of tests), 191 test files, 4,200+ automated tests |
-| **Process** | 700+ written requirements, 900+ test cases, 200+ recorded decisions, checks on every change. Industry standards used as references |
-| **Safety** | Local-only server, an action gate that lets a model reply do only a short list of things, read-only by default, a person confirms anything that changes something |
-| **Status** | Working daily. 900+ changes in the 17 days of this rebuild (1 to 17 November 2026) |
+| **Scale** | About 130,000 lines of Python and JavaScript (72,000 of program, 58,000 of tests), 4,200+ automated tests |
+| **Process** | 700+ written requirements, 900+ test cases, 200+ recorded decisions, checks on every change |
+| **Standards** | Used as references: ISO/IEC/IEEE 12207, 29148, 42010, 29119; ISO/IEC 25010, 29110, 5055; PEP 8 and 257; Semantic Versioning; Keep a Changelog; Conventional Commits. [Details](ENGINEERING.md) |
+| **Status** | Working daily. 900+ changes in the 17 days of the rebuild (1 to 17 November 2026) |
 
-## What I bring
+## Architecture
 
-- **I turn a vision into a tested system.** Written requirements, a test for each, and nothing called finished until it has been shown to work.
-- **I direct AI to build, and I hold it to a standard.** The work is specified, checked and recorded, so an AI assistant can build at speed without the quality drifting.
-- **I design for safety from the first day.** One owner, one laptop, private by default, and rules that the structure enforces, not just promises.
-- **I catch what the AI gets wrong.** A reviewed demo found two wrong answers; both were written down, tested and fixed or removed. See [ENGINEERING.md](ENGINEERING.md).
+A small core serves the page, holds the conversation, calls a model, speaks, listens, logs and keeps data. Everything else is an add-on that joins through the core's registration points, so no feature reaches into another. [DESIGN.md](DESIGN.md) has the architecture diagram, the design decisions and the reason for each.
 
-## What she is
+- **Local first.** Anything that can run on the laptop does: speech to text, text to speech, the server, the data. Data leaves the laptop only to a short list of named services.
+- **Fixed commands without a model.** Faster, free and always the same answer.
+- **Rules enforced by structure, not promised.** The action gate, the consent step and the local-only server are code paths a model's reply cannot talk its way around.
 
-Khadijah is a personal assistant you talk to. She answers in a voice made on the laptop she runs on, in whatever language you write or speak, and shows what she is doing on a screen in the browser.
+## Quality and process
 
-- **Voice in, voice out.** Speech to text and text to speech run on the laptop.
-- **A router for the right model.** Fixed commands are answered at once without a model. Everything else goes to a chosen model, with fallbacks, caps and a cheaper model for small jobs.
-- **Private by design.** One owner, one laptop. Her server listens on that laptop only and refuses requests from other web pages. She never places a trade, never buys anything and never stores a website password.
-- **A screen that looks finished: The City.** Real footage of a place for each part of her, following the real time of day. A menu down the left, a strip of live readings across the top, her pill at the upper right and a message bar at the bottom. Each name on the picture opens a live tool.
+1. A requirement is written in plain words and numbered.
+2. A test for it is written first and seen failing.
+3. The feature is built.
+4. A separate reviewer checks it against the requirement, using only the sources.
+5. It is shown to work, and the result is recorded.
+6. The change, the decision and the version are logged.
 
-## How she is built, and how it was run
+[ENGINEERING.md](ENGINEERING.md) holds the process, the standards, the numbers and two real examples of a wrong answer being caught and fixed.
 
-- **[DESIGN.md](DESIGN.md)**: the architecture diagram, the design decisions and the guardrails.
-- **[ENGINEERING.md](ENGINEERING.md)**: the process, the standards used as references, the numbers and two real examples of a wrong answer being caught and fixed.
-- **[FEATURES.md](FEATURES.md)**: everything she does today, group by group.
+## Stack
 
-| | |
-|---|---|
-| Written requirements | 700+ |
-| Test cases | 900+ |
-| Automated tests | 4,200+ |
-| Recorded decisions | 200+ |
-| Features | 78, in 11 groups |
-| User guide | 23 pages, included here in [`docs/guide`](docs/guide) |
-| History of this rebuild | 900+ changes, 1 to 17 November 2026 |
+Python 3.14 · FastAPI · Uvicorn · WebSockets · Anthropic Claude models (with one backup model) · faster-whisper with CTranslate2 (speech to text) · PyTorch (text to speech) · JavaScript front end · Playwright · pytest · ruff · pip-audit
 
 ## The City
 
@@ -66,9 +76,18 @@ Khadijah is a personal assistant you talk to. She answers in a voice made on the
 | ![Home by day: the Parkway in Philadelphia, with every card as a name on the picture](assets/city-home-day.jpg) | ![Home by night: Center City Philadelphia, the same names on a different picture](assets/city-home-night.jpg) |
 | ![The Personal Core place: six jerseys, with the Philly sports card name on top](assets/city-jerseys.jpg) | ![The Cartagena place: the cathedral tower, with its cards listed at the right](assets/city-cartagena.jpg) |
 
+## Documents on this page
+
+| | |
+|---|---|
+| [DESIGN.md](DESIGN.md) | Architecture diagram, design decisions and guardrails |
+| [ENGINEERING.md](ENGINEERING.md) | Process, standards used as references, numbers, two caught errors |
+| [FEATURES.md](FEATURES.md) | Everything she does today, group by group |
+| [`docs/guide`](docs/guide) | The 23-page user guide |
+
 ## About the builder
 
-I'm Rafiq, founder of RKM Aerial. I design and direct software: a clear vision, written requirements, a test for every one, and nothing called finished until it is shown to work.
+I'm Rafiq, founder of RKM Aerial. I design and direct software: a clear vision, written requirements, a test for every one, and nothing called finished until it is shown to work. I am open to AI engineering, AI product and AI delivery roles, and to building something like this for you.
 
 - **Contact:** [rkmaerial@gmail.com](mailto:rkmaerial@gmail.com)
 - **The program isn't published.** This page and the guide are the public side of the project.
@@ -76,3 +95,7 @@ I'm Rafiq, founder of RKM Aerial. I design and direct software: a clear vision, 
 ## Licence
 
 All rights reserved. This page is for viewing. See [LICENSE](LICENSE).
+
+---
+
+*Page owner: Rafiq. Page version 2.0.0, 2026-11-17.*
