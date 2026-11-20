@@ -38,7 +38,7 @@ These are the references the project's plans, requirements, architecture, tests 
 ## Evidence
 
 - **700+ written requirements** and **900+ test cases**, linked so every requirement points to its tests.
-- **4,200+ automated tests**, run before work is called done.
+- **4,000+ automated tests**, run before work is called done.
 - **200+ recorded decisions** on a change list: who asked, what was decided, what was built.
 - **17 project documents** with a purpose, an owner and a version each, plus a 23-page user guide written for the person who uses her.
 - **Checks on every change:** a document checker (every file, link and name a document mentions must exist), a style checker, a secret scan, and a requirement-to-test check. A change that fails them does not get committed.
