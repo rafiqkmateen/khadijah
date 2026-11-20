@@ -41,7 +41,7 @@ She was begun on 2 October 2026 and rebuilt from a clean start on 1 November und
 |---|---|
 | **What** | A voice assistant that listens, answers in the language you use, and runs 78 features in 11 groups: calendar and tasks, WhatsApp, news, laptop care, drone and video helpers, read-only account reports. [Every feature is listed here](FEATURES.md) |
 | **Role** | Architect and product owner: vision, requirements, design decisions, standards, sign-off. Claude wrote the code under written rules |
-| **Scale** | About 130,000 lines of Python and JavaScript (72,000 of program, 58,000 of tests), 4,000+ automated tests |
+| **Scale** | About 120,000 lines of code (about 64,000 of program, 59,000 of tests), 4,000+ automated tests |
 | **Process** | 700+ written requirements, 900+ test cases, 200+ recorded decisions, checks on every change |
 | **Standards** | Used as references: ISO/IEC/IEEE 12207, 29148, 42010, 29119; ISO/IEC 25010, 29110, 5055; PEP 8 and 257; Semantic Versioning; Keep a Changelog; Conventional Commits. [Details](ENGINEERING.md) |
 | **Status** | Working daily. 900+ changes in the 17 days of the rebuild (1 to 17 November 2026) |
@@ -50,7 +50,7 @@ She was begun on 2 October 2026 and rebuilt from a clean start on 1 November und
 
 A small core serves the page, holds the conversation, calls a model, speaks, listens, logs and keeps data. Everything else is an add-on that joins through the core's registration points, so no feature reaches into another. [DESIGN.md](DESIGN.md) has the architecture diagram, the design decisions and the reason for each.
 
-- **Local first.** Anything that can run on the laptop does: speech to text, text to speech, the server, the data. Data leaves the laptop only to a short list of named services.
+- **Local first.** Anything that can run on the laptop does: speech to text, text to speech, the server, the data. Data leaves the laptop only to a short list of named services: the AI models, the sites and accounts she reads, and, in Chrome, the browser's own speech recognizer, which only notices that someone is talking (the words come from Whisper on the laptop).
 - **Fixed commands without a model.** Faster, free and always the same answer.
 - **Rules enforced by structure, not promised.** The action gate, the consent step and the local-only server are code paths a model's reply cannot talk its way around.
 - **A separate tool stays separate.** Her Network Doctor card runs my standalone checker, [Network Doctor](https://github.com/rafiqkmateen/network-doctor) (a showcase page; its code is private), and shows the result. Its check only reads; a fix runs only when I press that fix's button on the card. She never depends on it: when it is missing, the card says so.

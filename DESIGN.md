@@ -22,7 +22,7 @@ A small core does what every version needs: serve the page, hold the conversatio
 |---|---|
 | **One owner, one laptop.** No cloud hosting, no second user, no phone app. | It removes most of the security surface. What is not built cannot be attacked. |
 | **A small core and optional add-ons.** The core never imports an add-on. | An add-on can fail or be switched off without taking the rest down. |
-| **Local first.** Anything that can run on the laptop does: speech to text, text to speech, the server, the data. | Data leaves the laptop only to a short list of named services, and only for what is needed. |
+| **Local first.** Anything that can run on the laptop does: speech to text, text to speech, the server, the data. | Data leaves the laptop only to a short list of named services, and only for what is needed. In Chrome, the browser's own speech recognizer is one of them; it only notices that someone is talking, and the words come from Whisper on the laptop. |
 | **Answer fixed commands without a model.** A command router handles them before any model is asked. | It is faster, free, and always gives the same answer. |
 | **Route to the right model.** Three selectable models, an upgrade cap, fallbacks if one fails, and the cheapest model for small helper jobs. | Cost and speed stay predictable, and a failed model does not stop her. |
 | **Fail safe and fail quiet.** A failed source shows a plain reason and never blanks the others. | One broken feed should never take the screen down. |
