@@ -53,7 +53,7 @@ A small core serves the page, holds the conversation, calls a model, speaks, lis
 - **Local first.** Anything that can run on the laptop does: speech to text, text to speech, the server, the data. Data leaves the laptop only to a short list of named services: the AI models, the sites and accounts she reads, and, in Chrome, the browser's own speech recognizer, which only notices that someone is talking (the words come from Whisper on the laptop).
 - **Fixed commands without a model.** Faster, free and always the same answer.
 - **Rules enforced by structure, not promised.** The action gate, the consent step and the local-only server are code paths a model's reply cannot talk its way around.
-- **A separate tool stays separate.** Her Network Doctor card runs my standalone checker, [Network Doctor](https://github.com/rafiqkmateen/network-doctor) (a showcase page; its code is private), and shows the result. Its check only reads; a fix runs only when I press that fix's button on the card. She never depends on it: when it is missing, the card says so.
+- **A separate tool stays separate.** Her Network Doctor card runs my standalone checker, [Network Doctor](https://github.com/rafiqkmateen/network-doctor) (open source under the MIT license), and shows the result. Its check only reads; a fix runs only when I press that fix's button on the card. She never depends on it: when it is missing, the card says so.
 
 ## Quality and process
 
