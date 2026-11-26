@@ -24,7 +24,7 @@ These are the references the project's plans, requirements, architecture, tests 
 
 | Standard | Used for |
 |---|---|
-| ISO/IEC/IEEE 12207 (2026) and 24748-3 | Software life cycle and guidance on applying it: the build plan |
+| ISO/IEC/IEEE 12207 (2026) and 24748-3 | Software life cycle and guidance on applying it: the project plans |
 | ISO/IEC/IEEE 29148 | Requirements: how the 700+ requirements are written |
 | ISO/IEC/IEEE 42010 | Architecture description |
 | ISO/IEC 25010 | Quality characteristics: reliability, security, usability and the rest |
